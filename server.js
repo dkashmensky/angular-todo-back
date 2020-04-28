@@ -23,4 +23,5 @@ app.use(logger);
 
 // app.use('/api', authRouter);
 
-app.listen(80);
+app.listen(config.port);
+console.log(`Server runs on port ${config.port}`);
