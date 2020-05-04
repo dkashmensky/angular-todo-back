@@ -4,10 +4,13 @@ const mongoose = require('mongoose');
 const Todo = mongoose.model('Todos');
 
 module.exports.get_todos = (req, res) => {
-  const { id } = req.params;
+  const { user, status } = req.query;
   const query = {};
-  if (id) {
-    query.created_by = id;
+  if (user !== 'all') {
+    query.created_by = user;
+  }
+  if (status !== 'all') {
+    query.done = status === 'true';
   }
 
   Todo.find(query, (err, todos) => {
