@@ -36,6 +36,7 @@ module.exports.create_todo = (req, res) => {
     created_by: user,
     text,
     deadline,
+    creation_date: Date.now(),
   });
 
   newTodo.save((err, todo) => {

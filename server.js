@@ -28,5 +28,5 @@ app.use(logger);
 app.use('/api', todoRouter);
 app.use('/api', userRouter);
 
-app.listen(config.port);
-console.log(`Server runs on port ${config.port}`);
+app.listen(process.env.PORT || config.port);
+console.log(`Server runs on port ${process.env.PORT || config.port}`);
